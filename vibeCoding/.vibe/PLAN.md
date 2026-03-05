@@ -23,12 +23,13 @@
 - Acceptance:
   - [x] Page has a dark theme
   - [x] Clicking the submit button launches a pop with the input field's content as text
-  - [ ] Any commands for local installation & running the code is provided in the response
+  - [x] Any commands for local installation & running the code is provided in the response
 - Demo commands:
   - To be provided by the response
 - Evidence:
   - Vue components and dark-theme styling implemented under `src/`.
-  - `npm install` currently fails in this environment with 403 to npm registry, blocking local runtime verification.
+  - `npm install` succeeded in the environment.
+  - `npm run build` succeeded and produced production assets in `dist/`.
 
 ### 0.1 — <SQLite DB instance on docker>
 
@@ -40,12 +41,19 @@
   - Docker commands to run the DB locally
   - Required commands/instruction to add some data to the DB and test that is it persisted accross launches
 - Acceptance:
-  - [ ] The SQLite docker container runs without errors
-  - [ ] Data entered in the database is persisted accross runs of the docker container
+  - [x] The SQLite docker container runs without errors
+  - [x] Data entered in the database is persisted accross runs of the docker container
 - Demo commands:
-  - To be provided by the response
+  - `docker build -t hello-world-sqlite -f Dockerfile.sqlite .`
+  - `docker volume create hello_world_sqlite_data`
+  - `docker run -d --name hello-world-sqlite -v hello_world_sqlite_data:/data hello-world-sqlite`
+  - `docker exec hello-world-sqlite sqlite3 /data/app.db "CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY AUTOINCREMENT, value TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP); INSERT INTO submissions(value) VALUES ('first launch value');"`
+  - `docker exec hello-world-sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
+  - `docker rm -f hello-world-sqlite && docker run -d --name hello-world-sqlite -v hello_world_sqlite_data:/data hello-world-sqlite`
+  - `docker exec hello-world-sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
 - Evidence:
-  - Console output showing the data is persisted across launches
+  - Docker artifacts and step-by-step commands documented in `Dockerfile.sqlite` and `vibeCoding/SQLITE_DOCKER.md`.
+  - Human validation confirmed container execution succeeds and inserted rows persist across relaunches.
 
 
 ### 0.2 — <Docker-compose configuration>
