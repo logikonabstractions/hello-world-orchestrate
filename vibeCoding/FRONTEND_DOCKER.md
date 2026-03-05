@@ -31,3 +31,8 @@ If running detached (`-d`), stop manually:
 ```bash
 docker stop hello-world-frontend
 ```
+
+
+## Troubleshooting
+
+If you encounter a Rollup optional dependency error on Alpine (for example missing `@rollup/rollup-linux-x64-musl`), this image uses Debian-based Node (`node:22-bookworm-slim`) to avoid that npm optional-dependency issue during `npm ci` + `npm run build`.

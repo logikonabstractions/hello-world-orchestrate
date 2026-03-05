@@ -31,10 +31,12 @@
 - Added a front-end Docker runbook covering build, run, smoke test, and cleanup commands.
 - Added `package-lock.json` so Docker builds can use `npm ci` reliably.
 - Ran `npm run build` to validate the production build path used by the Docker image.
+- Switch Docker base images from Alpine to Debian slim to avoid Rollup musl optional dependency failures.
 
 ## Evidence
 - `npm run build` completed successfully.
 - `npm ci` now has a committed lockfile input (`package-lock.json`) for Docker builds.
+- Dockerfile build stage now uses glibc-based Node image to avoid `@rollup/rollup-linux-x64-musl` resolution failures.
 
 ## Workflow state
 - [x] RUN_CONTEXT_CAPTURE
@@ -53,3 +55,4 @@
 
 ## Decisions
 - 2026-03-05: Use a Node-based static server (`serve`) for the front-end container to keep setup minimal and portable.
+- 2026-03-05: Use Debian-based Node images for the front-end Docker build/runtime to prevent Alpine musl optional dependency issues with Rollup.
