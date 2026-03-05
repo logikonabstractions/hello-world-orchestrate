@@ -1,0 +1,7 @@
+name: auto-triage
+description: Trigger triage when blockers appear.
+triggers:
+  - type: on-issue
+    value: BLOCKER
+steps:
+  - prompt_id: prompt.issues_triage

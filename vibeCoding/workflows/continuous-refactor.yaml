@@ -1,0 +1,8 @@
+name: continuous-refactor
+description: Continuous refactor cycle (scan -> execute -> verify) until only [MINOR] ideas remain.
+triggers:
+  - type: manual
+steps:
+  - prompt_id: prompt.refactor_scan
+  - prompt_id: prompt.refactor_execute
+  - prompt_id: prompt.refactor_verify

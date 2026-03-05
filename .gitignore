@@ -1,0 +1,82 @@
+# ----------------------
+# Python bytecode
+# ----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# ----------------------
+# Distribution / packaging
+# ----------------------
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# ----------------------
+# Virtual environments
+# ----------------------
+.env
+.env.*
+.venv
+venv/
+env/
+ENV/
+
+# ----------------------
+# Python tooling caches
+# ----------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# ----------------------
+# Logs
+# ----------------------
+*.log
+
+# ----------------------
+# Jupyter
+# ----------------------
+.ipynb_checkpoints
+
+# ----------------------
+# PyCharm / IntelliJ
+# ----------------------
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ----------------------
+# VS Code (optional)
+# ----------------------
+.vscode/
+
+# ----------------------
+# OS junk
+# ----------------------
+.DS_Store
+Thumbs.db
