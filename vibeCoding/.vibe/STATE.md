@@ -10,8 +10,8 @@
 ## Current focus
 
 - Stage: 0
-- Checkpoint: 0.1
-- Status: BLOCKED  <!-- one of: NOT_STARTED | IN_PROGRESS | IN_REVIEW | BLOCKED | DONE -->
+- Checkpoint: 0.0
+- Status: DONE  <!-- one of: NOT_STARTED | IN_PROGRESS | IN_REVIEW | BLOCKED | DONE -->
 
 ## Objective (current checkpoint)
 Configure a Docker-based SQLite setup with persistent storage and provide commands to run and validate local persistence.
