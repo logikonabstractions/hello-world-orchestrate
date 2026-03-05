@@ -8,15 +8,15 @@
 
 ## Completed checkpoints
 <!-- Append entries as checkpoints complete. -->
-- YYYY-MM-DD — Stage X / Checkpoint X.Y: <title>
-  - Summary: <1–3 bullets>
-  - Evidence pointer: <where evidence lives (commit hash, PR, or pasted output reference)>
+- 2026-03-05 — Stage 0 / Checkpoint 0.0: Init Vues-js Hello World
+  - Summary: Implemented the Vue + Vite hello-world UI with dark theme and submit popup behavior.
+  - Evidence pointer: Validation commands `npm install` and `npm run build` now succeed locally.
 
 ## Resolved issues
 
-- YYYY-MM-DD — ISSUE-001: <title>
-  - Resolution: <1–2 lines>
-  - Notes: <optional>
+- 2026-03-05 — ISSUE-001: npm registry access denied in execution environment
+  - Resolution: Resolved; dependency install and production build completed successfully in this environment.
+  - Notes: Moved out of active issues in `.vibe/STATE.md`.
 
 ## Process notes
 <!-- Changes to the orchestration approach, scripts, prompts, etc. -->
