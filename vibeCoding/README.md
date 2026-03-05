@@ -4,13 +4,22 @@ This repository tracks agentic work using state files only.
 
 ## Core files for agentic workflow
 
-All files in `.vibe` track the progress of work. 
+All files in `.vibe` track the progress of work.
 
 - `AGENTS.md` — execution contract and operating policy.
 - `.vibe/PLAN.md` — checkpoint backlog with acceptance criteria.
 - `.vibe/STATE.md` — active checkpoint, status, and current session evidence.
 - `.vibe/HISTORY.md` — optional archive for completed checkpoints and resolved issues.
 - `.vibe/CONTEXT.md` — optional handoff notes and durable project context.
+
+## Current Docker runbooks
+
+Checkpoint outputs produced so far:
+
+- `../Dockerfile.sqlite` + `SQLITE_DOCKER.md` for SQLite container setup and persistence checks.
+- `../Dockerfile.frontend` + `FRONTEND_DOCKER.md` for frontend image build/run and smoke-test commands.
+
+For current progress and next checkpoint, use `.vibe/STATE.md` and `.vibe/PLAN.md`.
 
 ## Canonical templates (DRY)
 
@@ -26,8 +35,8 @@ To avoid drift, treat these as the single source of truth for structure:
 2. Pick the active checkpoint from `.vibe/STATE.md`.
 3. Implement only that checkpoint.
 4. Run required demo/test commands.
-5. Update `.vibe/STATE.md` and `.vibe/HISTORY.md` (and `.vibe/CONTEXT.md` if relevant)
-7. Human reviews.
+5. Update `.vibe/STATE.md` and `.vibe/HISTORY.md` (and `.vibe/CONTEXT.md` if relevant).
+6. Human reviews.
 
 ## Quick consistency checks (agent + human)
 

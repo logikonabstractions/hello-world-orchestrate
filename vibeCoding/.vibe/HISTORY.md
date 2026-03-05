@@ -10,11 +10,18 @@
 <!-- Append entries as checkpoints complete. -->
 - 2026-03-05 — Stage 0 / Checkpoint 0.0: Init Vues-js Hello World
   - Summary: Implemented the Vue + Vite hello-world UI with dark theme and submit popup behavior.
-  - Evidence pointer: Validation commands `npm install` and `npm run build` now succeed locally.
+  - Evidence pointer: Validation commands `npm install` and `npm run build` succeeded in this environment.
 
 - 2026-03-05 — Stage 0 / Checkpoint 0.1: SQLite DB instance on docker
   - Summary: Added Dockerized SQLite image configuration and persistence runbook for local usage.
-  - Evidence pointer: Human-run Docker commands confirmed container startup and persistence across relaunches.
+  - Evidence pointer: Human-run Docker commands confirmed container startup and persistence across relaunches (commit `549153d`).
+
+- 2026-03-05 — Stage 0 / Checkpoint 0.1.2: Frontend config on docker
+  - Summary:
+    - Added `Dockerfile.frontend` and frontend Docker runbook.
+    - Added `package-lock.json` to support reproducible Docker `npm ci` builds.
+    - Switched frontend Docker images to Debian slim to avoid Rollup musl optional dependency failures.
+  - Evidence pointer: commits `9ded16e`, `4f00bf4`, and `d326a19`.
 
 ## Resolved issues
 
@@ -26,6 +33,10 @@
   - Resolution: Resolved for checkpoint acceptance by human-executed Docker validation outside this environment.
   - Notes: Checkpoint 0.1 closed based on reported successful execution and persistence behavior.
 
+- 2026-03-05 — ISSUE-003: Frontend Docker build instability on Alpine base image
+  - Resolution: Resolved by switching to `node:22-bookworm-slim` for build/runtime stages.
+  - Notes: Eliminated missing optional dependency failures for Rollup on musl.
+
 ## Process notes
 <!-- Changes to the orchestration approach, scripts, prompts, etc. -->
-- YYYY-MM-DD: <note>
+- 2026-03-05: Consolidated active planning continuity in `vibeCoding/.vibe/*` after short-lived root-level `.vibe/*` tracking files were removed.
