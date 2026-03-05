@@ -44,9 +44,16 @@
   - [ ] The SQLite docker container runs without errors
   - [ ] Data entered in the database is persisted accross runs of the docker container
 - Demo commands:
-  - To be provided by the response
+  - `docker build -t hello-world-sqlite -f Dockerfile.sqlite .`
+  - `docker volume create hello_world_sqlite_data`
+  - `docker run -d --name hello-world-sqlite -v hello_world_sqlite_data:/data hello-world-sqlite`
+  - `docker exec hello-world-sqlite sqlite3 /data/app.db "CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY AUTOINCREMENT, value TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP); INSERT INTO submissions(value) VALUES ('first launch value');"`
+  - `docker exec hello-world-sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
+  - `docker rm -f hello-world-sqlite && docker run -d --name hello-world-sqlite -v hello_world_sqlite_data:/data hello-world-sqlite`
+  - `docker exec hello-world-sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
 - Evidence:
-  - Console output showing the data is persisted across launches
+  - Docker artifacts and step-by-step commands documented in `Dockerfile.sqlite` and `vibeCoding/SQLITE_DOCKER.md`.
+  - Local Docker execution pending because Docker CLI is unavailable in this environment.
 
 ### 0.1.2 — <Frontend config on docker>
 
