@@ -41,8 +41,8 @@
   - Docker commands to run the DB locally
   - Required commands/instruction to add some data to the DB and test that is it persisted accross launches
 - Acceptance:
-  - [ ] The SQLite docker container runs without errors
-  - [ ] Data entered in the database is persisted accross runs of the docker container
+  - [x] The SQLite docker container runs without errors
+  - [x] Data entered in the database is persisted accross runs of the docker container
 - Demo commands:
   - `docker build -t hello-world-sqlite -f Dockerfile.sqlite .`
   - `docker volume create hello_world_sqlite_data`
@@ -69,7 +69,8 @@
 - Demo commands:
   - To be provided by the response
 - Evidence:
-  - Console output showing the data is persisted across launches
+  - Docker artifacts and step-by-step commands documented in `Dockerfile.sqlite` and `vibeCoding/SQLITE_DOCKER.md`.
+  - Human validation confirmed container execution succeeds and inserted rows persist across relaunches.
 
 ### 0.2 — <Docker-compose configuration>
 
