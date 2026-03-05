@@ -21,11 +21,16 @@
   - [ ] Text entered into the input field is saved to the DB after hitting the `Submit` button
   - [ ] The content saved to the DB is persisted across launches
 - Demo commands:
-  - To be provided by the response
+  - `docker compose up -d --build`
+  - `curl -I http://localhost:4173`
+  - `docker compose exec sqlite sqlite3 /data/app.db "CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY AUTOINCREMENT, value TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP); INSERT INTO submissions(value) VALUES ('compose launch value');"`
+  - `docker compose exec sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
+  - `docker compose down && docker compose up -d && docker compose exec sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
 - Evidence:
-  - Pending implementation in this repository.
+  - `docker-compose.yaml` added with frontend and sqlite services plus named persistent volume `hello_world_sqlite_data`.
+  - `vibeCoding/DOCKER_COMPOSE.md` documents launch, verification, and persistence steps.
 
-### 0.2 — <Docker-compose configuration>
+### 0.2 — <Docker-compose configuration> ✅
 
 - Objective:
   - Provide a docker-compose configuration that launches both the frontend & the DB containers in one command
@@ -34,13 +39,18 @@
   - The docker-compose command that launches the containers
   - Additional configurations required so that the docker volumes are persisted across launches (consistent with checkpoint 0.1)
 - Acceptance:
-  - [ ] The frontend launches and is accessible via `localhost:<port>`
-  - [ ] The SQLite DB launches and runs without errors
-  - [ ] Data in the DB is persisted across 2 launches
+  - [x] The frontend launches and is accessible via `localhost:<port>`
+  - [x] The SQLite DB launches and runs without errors
+  - [x] Data in the DB is persisted across 2 launches
 - Demo commands:
-  - To be provided by the response
+  - `docker compose up -d --build`
+  - `curl -I http://localhost:4173`
+  - `docker compose exec sqlite sqlite3 /data/app.db "CREATE TABLE IF NOT EXISTS submissions (id INTEGER PRIMARY KEY AUTOINCREMENT, value TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP); INSERT INTO submissions(value) VALUES ('compose launch value');"`
+  - `docker compose exec sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
+  - `docker compose down && docker compose up -d && docker compose exec sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
 - Evidence:
-  - Pending implementation in this repository.
+  - `docker-compose.yaml` added with frontend and sqlite services plus named persistent volume `hello_world_sqlite_data`.
+  - `vibeCoding/DOCKER_COMPOSE.md` documents launch, verification, and persistence steps.
 
 ### 0.1.2 — <Frontend config on docker>
 

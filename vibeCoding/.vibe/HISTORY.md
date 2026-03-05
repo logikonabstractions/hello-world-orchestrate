@@ -23,6 +23,13 @@
     - Switched frontend Docker images to Debian slim to avoid Rollup musl optional dependency failures.
   - Evidence pointer: commits `9ded16e`, `4f00bf4`, and `d326a19`.
 
+- 2026-03-05 — Stage 0 / Checkpoint 0.2: Docker-compose configuration
+  - Summary:
+    - Added `docker-compose.yaml` to orchestrate frontend and sqlite services in one command.
+    - Configured named volume `hello_world_sqlite_data` for persistent SQLite storage across relaunches.
+    - Added `vibeCoding/DOCKER_COMPOSE.md` runbook with startup, verification, and persistence demo commands.
+  - Evidence pointer: compose artifacts and runbook committed in this checkpoint.
+
 ## Resolved issues
 
 - 2026-03-05 — ISSUE-001: npm registry access denied in execution environment
