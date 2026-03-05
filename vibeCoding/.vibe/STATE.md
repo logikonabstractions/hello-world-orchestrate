@@ -11,7 +11,7 @@
 
 - Stage: 0
 - Checkpoint: 0.0
-- Status: BLOCKED  <!-- one of: NOT_STARTED | IN_PROGRESS | IN_REVIEW | BLOCKED | DONE -->
+- Status: DONE  <!-- one of: NOT_STARTED | IN_PROGRESS | IN_REVIEW | BLOCKED | DONE -->
 
 ## Objective (current checkpoint)
 Build the initial Vue.js Hello World frontend with a dark-themed page, componentized layout, input field, and submit button popup behavior.
@@ -29,9 +29,11 @@ Build the initial Vue.js Hello World frontend with a dark-themed page, component
 - 2026-03-05: Updated `README.md` and `VIBE.md` to point to canonical meta templates instead of re-embedding template definitions, reducing doc duplication.
 - 2026-03-05: Scaffolded a Vue 3 + Vite frontend with componentized `PageHeader` and `SubmissionForm` and dark theme styles for checkpoint 0.0.
 - 2026-03-05: Attempted to install dependencies (`npm install`) to validate build, but the environment denied access to npm registry (HTTP 403).
+- 2026-03-05: Re-ran validation (`npm install`, `npm run build`) successfully and confirmed checkpoint 0.0 is unblocked and complete.
 
 ## Evidence
-- `npm install` failed with `403 Forbidden - GET https://registry.npmjs.org/@vitejs%2fplugin-vue`.
+- `npm install` succeeded.
+- `npm run build` succeeded with Vite production output in `dist/`.
 
 ## Workflow state
 <!-- Dispatcher flags. Checked = active/needed. Cleared by the loop that handles each flag. -->
@@ -42,13 +44,7 @@ Build the initial Vue.js Hello World frontend with a dark-themed page, component
 
 ## Active issues
 <!-- Keep only active issues here. Move resolved items to HISTORY.md. -->
-- [ ] ISSUE-001: npm registry access denied in execution environment
-  - Impact: BLOCKER <!-- QUESTION | MINOR | MAJOR | BLOCKER -->
-  - Status: BLOCKED <!-- OPEN | IN_PROGRESS | BLOCKED | RESOLVED | DECISION_REQUIRED -->
-  - Owner: human
-  - Unblock Condition: Network/security policy allows installing npm dependencies from registry.npmjs.org.
-  - Evidence Needed: Successful `npm install` and `npm run build` outputs.
-  - Notes: Frontend code is implemented, but runtime/build verification is blocked until package installation is permitted.
+- None.
 
 ## Decisions
 <!-- Only decisions that matter for future work. -->

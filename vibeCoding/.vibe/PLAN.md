@@ -23,12 +23,13 @@
 - Acceptance:
   - [x] Page has a dark theme
   - [x] Clicking the submit button launches a pop with the input field's content as text
-  - [ ] Any commands for local installation & running the code is provided in the response
+  - [x] Any commands for local installation & running the code is provided in the response
 - Demo commands:
   - To be provided by the response
 - Evidence:
   - Vue components and dark-theme styling implemented under `src/`.
-  - `npm install` currently fails in this environment with 403 to npm registry, blocking local runtime verification.
+  - `npm install` succeeded in the environment.
+  - `npm run build` succeeded and produced production assets in `dist/`.
 
 ### 0.1 — <SQLite DB instance on docker>
 
