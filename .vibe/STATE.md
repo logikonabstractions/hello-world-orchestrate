@@ -29,10 +29,12 @@
 - Added checkpoint tracking files under `.vibe` to explicitly capture stage and checkpoint state.
 - Added a multi-stage Dockerfile for building and serving the Vue app using a Node runtime.
 - Added a front-end Docker runbook covering build, run, smoke test, and cleanup commands.
+- Added `package-lock.json` so Docker builds can use `npm ci` reliably.
 - Ran `npm run build` to validate the production build path used by the Docker image.
 
 ## Evidence
 - `npm run build` completed successfully.
+- `npm ci` now has a committed lockfile input (`package-lock.json`) for Docker builds.
 
 ## Workflow state
 - [x] RUN_CONTEXT_CAPTURE
@@ -47,7 +49,7 @@
   - Owner: human
   - Unblock Condition: Docker daemon is available in the runtime where container checks are executed.
   - Evidence Needed: Successful `docker build` and `docker run` output for checkpoint 0.2.
-  - Notes: We validated the app build path with `npm run build` in this environment.
+  - Notes: Prior `npm ci` lockfile failure is resolved by committing `package-lock.json`; runtime here still lacks Docker CLI.
 
 ## Decisions
 - 2026-03-05: Use a Node-based static server (`serve`) for the front-end container to keep setup minimal and portable.
