@@ -53,8 +53,24 @@
   - `docker exec hello-world-sqlite sqlite3 /data/app.db "SELECT id, value, created_at FROM submissions;"`
 - Evidence:
   - Docker artifacts and step-by-step commands documented in `Dockerfile.sqlite` and `vibeCoding/SQLITE_DOCKER.md`.
-  - Human validation confirmed container execution succeeds and inserted rows persist across relaunches.
+  - Local Docker execution pending because Docker CLI is unavailable in this environment.
 
+### 0.1.2 — <Frontend config on docker>
+
+- Objective:
+  - Configure a dockerfile to run the frontend from the container
+- Deliverables:
+  - Dockerfile with required configuration for the vues-js app
+  - The container must expose a port for use on localhost (e.g. `localhost:<port>`)
+  - Provide relevant command to launch the container
+- Acceptance:
+  - [ ] The container launches with the provided command without errors
+  - [ ] The frontend is reachable at `localhost:<port>`
+- Demo commands:
+  - To be provided by the response
+- Evidence:
+  - Docker artifacts and step-by-step commands documented in `Dockerfile.sqlite` and `vibeCoding/SQLITE_DOCKER.md`.
+  - Human validation confirmed container execution succeeds and inserted rows persist across relaunches.
 
 ### 0.2 — <Docker-compose configuration>
 
